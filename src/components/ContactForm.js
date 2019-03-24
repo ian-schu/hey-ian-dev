@@ -120,6 +120,10 @@ const Modal = styled.div`
   }
 `
 
+const IntroBlurb = styled.p`
+  margin-bottom: 2rem;
+`
+
 const Button = styled.div`
   background: ${props => props.theme.colors.base};
   font-size: 1em;
@@ -199,9 +203,14 @@ class ContactForm extends React.Component {
         onSubmit={this.handleSubmit}
         data-netlify="true"
         data-netlify-honeypot="bot"
+        data-netlify-recaptcha="true"
         overlay={this.state.showModal}
         onClick={this.closeModal}
       >
+        <IntroBlurb>
+          Want to get in touch? Here, fill out this form and hand it back to me
+          when you're done.
+        </IntroBlurb>
         <input type="hidden" name="form-name" value="contact" />
         <p hidden>
           <label>
@@ -229,17 +238,18 @@ class ContactForm extends React.Component {
         <Message
           name="message"
           type="text"
-          placeholder="Message"
+          placeholder="Now what is it you wanted to tell me?"
           value={this.state.message}
           onChange={this.handleInputChange}
           required
         />
+        <div data-netlify-recaptcha="true" />
         <Submit name="submit" type="submit" value="Send" />
 
         <Modal visible={this.state.showModal}>
           <p>
-            Thank you for reaching out. I will get back to you as soon as
-            possible.
+            Thanks for reaching out! I'll take a look at your message as soon as
+            I'm able. Hope you have a great day :-)
           </p>
           <Button onClick={this.closeModal}>Okay</Button>
         </Modal>
