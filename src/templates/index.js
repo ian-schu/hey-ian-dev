@@ -8,10 +8,10 @@ import Container from '../components/Container'
 import Pagination from '../components/Pagination'
 import SEO from '../components/SEO'
 import config from '../utils/siteConfig'
+import Chat from '../components/Chat'
 
 const Index = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges
-  const featuredPost = posts[0].node
   const { currentPage } = pageContext
   const isFirstPage = currentPage === 1
 
@@ -25,12 +25,14 @@ const Index = ({ data, pageContext }) => {
       )}
       <Container>
         {isFirstPage ? (
-          <CardList>
-            <Card {...featuredPost} featured />
-            {posts.slice(1).map(({ node: post }) => (
-              <Card key={post.id} {...post} />
-            ))}
-          </CardList>
+          <main>
+            <Chat />
+            <CardList>
+              {posts.map(({ node: post }) => (
+                <Card key={post.id} {...post} />
+              ))}
+            </CardList>
+          </main>
         ) : (
           <CardList>
             {posts.map(({ node: post }) => (
