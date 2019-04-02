@@ -61,7 +61,3 @@ const ChatEntry = (entry, authors) => {
     </div>
   )
 }
-
-// Chat.propTypes = {
-//   data: PropTypes.array.isRequired,
-// }
