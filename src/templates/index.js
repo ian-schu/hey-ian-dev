@@ -9,6 +9,7 @@ import Pagination from '../components/Pagination'
 import SEO from '../components/SEO'
 import config from '../utils/siteConfig'
 import Chat from '../components/Chat'
+import styled from 'styled-components'
 
 const Index = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges
@@ -26,6 +27,11 @@ const Index = ({ data, pageContext }) => {
       <Container>
         {isFirstPage ? (
           <main>
+            <Warning>
+              This site is currently crap! I mean, it's under active development
+              while I learn Gatsby :-) <br />
+              Come back later and it will be better
+            </Warning>
             <Chat />
             <CardList>
               {posts.map(({ node: post }) => (
@@ -45,6 +51,13 @@ const Index = ({ data, pageContext }) => {
     </Layout>
   )
 }
+
+const Warning = styled.h1`
+  font-size: 3em;
+  font-weight: 600;
+  text-align: center;
+  margin: 1rem auto;
+`
 
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {
