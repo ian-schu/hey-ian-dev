@@ -15,19 +15,9 @@ const Body = styled.div`
     text-transform: capitalize;
   }
 
-  h1 {
-    font-size: 1.5em;
-  }
-  h2 {
-    font-size: 1.25em;
-  }
-  h3 {
-    font-size: 1em;
-  }
-
   p {
-    line-height: 1.6;
-    margin: 0 0 2em 0;
+    line-height: 1.7rem;
+    margin: 0 0 1.5rem 0;
   }
 
   a {
@@ -57,11 +47,19 @@ const Body = styled.div`
     li {
       list-style: disc;
       list-style-position: inside;
-      line-height: 1.25;
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+      p {
+        display: inline;
+      }
       &:last-child {
         margin: 0;
       }
     }
+  }
+
+  li ul {
+    margin: 0 0 1em 1em;
   }
 
   ol {
