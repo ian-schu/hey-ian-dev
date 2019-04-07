@@ -57,23 +57,7 @@ const Footer = () => (
           />
         </a>
       </Item>
-      <Item>
-        <a
-          href="https://github.com/ryanwiemer/gatsby-starter-gcn"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          gatsby-starter-gcn
-        </a>{' '}
-        by{' '}
-        <a
-          href="https://github.com/ryanwiemer"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          @ryanwiemer
-        </a>
-      </Item>
+      <Item>Built in Austin with lots of 🤔 ☕ 🎧 🐬</Item>
     </List>
   </Wrapper>
 )

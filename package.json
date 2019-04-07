@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-gcn",
-  "description": "A starter template to build amazing static websites with Gatsby, Contentful and Netlify",
+  "name": "HeyIan dot dev",
+  "description": "Personal blog and portfolio of Ian Schumann",
   "version": "2.0.4",
-  "repository": "https://github.com/ryanwiemer/gatsby-starter-gcn",
-  "author": "Ryan Wiemer <ryan@ryanwiemer.com>",
+  "repository": "https://github.com/ian-schu/hey-ian-blog",
+  "author": "Ian Schumann <ian.l.schumann@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.0",
     "chalk": "^2.4.1",
