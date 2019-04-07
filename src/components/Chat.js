@@ -103,12 +103,13 @@ const ChatEntry = props => {
 const Wrapper = styled.div`
   min-height: 150px;
   position: relative;
+  margin: 1rem auto;
+  max-width: ${props => props.theme.sizes.maxWidthInsetCentered};
   cursor: pointer;
 `
 
 const Container = styled.div`
   background-color: #f2fff9;
-  margin: 1rem auto;
   max-height: ${props => (props.expanded ? 'auto' : '150px')};
   width: 100%;
   overflow: hidden;
@@ -140,7 +141,7 @@ const Entry = styled.div`
   }
 `
 const Avatar = styled.div`
-  width: 50px;
+  min-width: 50px;
   margin-right: 0.5rem;
   img {
     border-radius: 2px;
