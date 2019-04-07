@@ -8,6 +8,7 @@ const theme = {
   sizes: {
     maxWidth: '1050px',
     maxWidthCentered: '800px',
+    maxWidthInsetCentered: '650px',
   },
   responsive: {
     small: '35em',

@@ -3,27 +3,59 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 
-const Chat = props => {
-  const chatData = props.data.chatBlob
-  const authors = props.data.authors
+class Chat extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      expanded: false,
+      timeStamps: this.setTimestamps(),
+    }
+  }
 
-  const timeStart = new Date()
-  timeStart.setMinutes(timeStart.getMinutes() - chatData.length)
+  setTimestamps() {
+    const chatData = this.props.data.chatBlob
 
-  const timeStamps = chatData.map(() => {
-    const offset = Math.round(Math.random() * 30) + 15
-    const epoch = timeStart.setSeconds(timeStart.getSeconds() + offset)
-    return new Date(epoch)
-  })
+    const timeStart = new Date()
+    timeStart.setMinutes(timeStart.getMinutes() - chatData.length)
 
-  return chatData.map((entry, idx) => {
-    const time = timeStamps[idx]
-    const timeString = time.toLocaleTimeString()
+    const timeStamps = chatData.map(() => {
+      const offset = Math.round(Math.random() * 30) + 15
+      const epoch = timeStart.setSeconds(timeStart.getSeconds() + offset)
+      return new Date(epoch)
+    })
+
+    return timeStamps
+  }
+
+  expand = () => {
+    this.setState(prevState => ({ expanded: !!prevState.expanded }))
+  }
+
+  render() {
+    const chatData = this.props.data.chatBlob
+    const authors = this.props.data.authors
+    const { timeStamps, expanded } = this.state
 
     return (
-      <ChatEntry key={idx} entry={entry} authors={authors} time={timeString} />
+      <Wrapper>
+        <Container onClick={this.expand} expanded={expanded}>
+          {chatData.map((entry, idx) => {
+            const time = timeStamps[idx]
+            const timeString = time.toLocaleTimeString()
+
+            return (
+              <ChatEntry
+                key={idx}
+                entry={entry}
+                authors={authors}
+                time={timeString}
+              />
+            )
+          })}
+        </Container>
+      </Wrapper>
     )
-  })
+  }
 }
 
 Chat.propTypes = {
@@ -67,16 +99,50 @@ const ChatEntry = props => {
   )
 }
 
+const Wrapper = styled.div`
+  min-height: 150px;
+  position: relative;
+`
+
+const Container = styled.div`
+  cursor: pointer;
+  background-color: #f2fff9;
+  margin: 1rem auto;
+  max-height: ${props => (props.expanded ? 'auto' : '150px')};
+  width: 100%;
+  overflow: hidden;
+  max-width: ${props => props.theme.sizes.maxWidthInsetCentered};
+  &::before {
+    content: '';
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.2) 20%,
+      rgba(255, 255, 255, 1) 90%
+    );
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: ${props => (props.expanded ? 'auto' : '150px')};
+    width: 100%;
+    z-index: 1;
+  }
+`
+
 const Entry = styled.div`
+  padding: 0.5rem 1rem;
   display: flex;
   flex-flow: row nowrap;
-  margin-bottom: 1rem;
+  &:hover {
+    background-color: #f4f4f4;
+  }
 `
 const Avatar = styled.div`
   width: 50px;
   margin-right: 0.5rem;
   img {
-    border: 1px solid #eeeeee;
+    border-radius: 2px;
   }
 `
 const Meta = styled.div`
