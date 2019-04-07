@@ -28,7 +28,7 @@ class Chat extends React.Component {
   }
 
   expand = () => {
-    this.setState(prevState => ({ expanded: !!prevState.expanded }))
+    this.setState(prevState => ({ expanded: !prevState.expanded }))
   }
 
   render() {
@@ -37,8 +37,8 @@ class Chat extends React.Component {
     const { timeStamps, expanded } = this.state
 
     return (
-      <Wrapper>
-        <Container onClick={this.expand} expanded={expanded}>
+      <Wrapper onClick={this.expand}>
+        <Container expanded={expanded}>
           {chatData.map((entry, idx) => {
             const time = timeStamps[idx]
             const timeString = time.toLocaleTimeString()
@@ -53,6 +53,7 @@ class Chat extends React.Component {
             )
           })}
         </Container>
+        {!expanded && <Overlay />}
       </Wrapper>
     )
   }
@@ -102,32 +103,32 @@ const ChatEntry = props => {
 const Wrapper = styled.div`
   min-height: 150px;
   position: relative;
+  cursor: pointer;
 `
 
 const Container = styled.div`
-  cursor: pointer;
   background-color: #f2fff9;
   margin: 1rem auto;
   max-height: ${props => (props.expanded ? 'auto' : '150px')};
   width: 100%;
   overflow: hidden;
   max-width: ${props => props.theme.sizes.maxWidthInsetCentered};
-  &::before {
-    content: '';
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.2) 20%,
-      rgba(255, 255, 255, 1) 90%
-    );
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    max-height: ${props => (props.expanded ? 'auto' : '150px')};
-    width: 100%;
-    z-index: 1;
-  }
+`
+
+const Overlay = styled.div`
+  height: 150px;
+  position: absolute;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 1) 90%
+  );
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 `
 
 const Entry = styled.div`
