@@ -13,6 +13,9 @@ import styled from 'styled-components'
 
 const Index = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges
+
+  const chatData = data.allContentfulChat.edges[0].node
+
   const { currentPage } = pageContext
   const isFirstPage = currentPage === 1
 
@@ -32,7 +35,7 @@ const Index = ({ data, pageContext }) => {
               while I learn Gatsby :-) <br />
               Come back later and it will be better
             </Warning>
-            <Chat />
+            <Chat data={chatData} />
             <CardList>
               {posts.map(({ node: post }) => (
                 <Card key={post.id} {...post} />
@@ -83,6 +86,27 @@ export const query = graphql`
               html
               excerpt(pruneLength: 80)
             }
+          }
+        }
+      }
+    }
+    allContentfulChat(filter: { name: { eq: "Landing" } }) {
+      edges {
+        node {
+          name
+          authors {
+            name
+            role
+            status
+            avatar {
+              fluid(maxWidth: 500) {
+                ...GatsbyContentfulFluid_withWebp_noBase64
+              }
+            }
+          }
+          chatBlob {
+            author
+            text
           }
         }
       }

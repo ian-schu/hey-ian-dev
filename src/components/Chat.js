@@ -1,43 +1,13 @@
 import React from 'react'
 import styles from './Chat.module.css'
 import Img from 'gatsby-image'
-import { StaticQuery, graphql } from 'gatsby'
 
-const Chat = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        allContentfulChat(filter: { name: { eq: "Landing" } }) {
-          edges {
-            node {
-              name
-              authors {
-                name
-                role
-                status
-                avatar {
-                  fluid(maxWidth: 500) {
-                    ...GatsbyContentfulFluid_withWebp_noBase64
-                  }
-                }
-              }
-              chatBlob {
-                author
-                text
-              }
-            }
-          }
-        }
-      }
-    `}
-    render={data => {
-      const chatData = data.allContentfulChat.edges[0].node.chatBlob
-      const authors = data.allContentfulChat.edges[0].node.authors
+const Chat = props => {
+  const chatData = props.data.chatBlob
+  const authors = props.data.authors
 
-      return chatData.map(entry => ChatEntry(entry, authors))
-    }}
-  />
-)
+  return chatData.map(entry => ChatEntry(entry, authors))
+}
 
 export default Chat
 
