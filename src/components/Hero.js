@@ -39,9 +39,6 @@ const BgImg = styled(Img)`
 `
 
 const Title = styled.h1`
-  font-size: 3em;
-  text-transform: capitalize;
-  font-weight: 600;
   width: 100%;
   max-width: ${props => props.theme.sizes.maxWidthCentered};
   padding: 1rem;

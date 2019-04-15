@@ -6,19 +6,6 @@ const Body = styled.div`
   margin: 0 auto;
   max-width: ${props => props.theme.sizes.maxWidthCentered};
 
-  h1,
-  h2,
-  h3 {
-    font-weight: 600;
-    line-height: 1.25;
-    margin: 0 0 1rem 0;
-  }
-
-  p {
-    line-height: 1.7rem;
-    margin: 0 0 1.5rem 0;
-  }
-
   a {
     transition: 0.2s;
     color: ${props => props.theme.colors.base};
@@ -29,9 +16,6 @@ const Body = styled.div`
 
   del {
     text-decoration: line-through;
-  }
-  strong {
-    font-weight: 600;
   }
   em {
     font-style: italic;

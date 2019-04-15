@@ -53,8 +53,6 @@ const Index = ({ data, pageContext }) => {
 
 const Welcome = styled.h1`
   font-size: 5em;
-  font-weight: 600;
-  font-style: oblique;
   text-align: center;
   margin: 0 auto 1rem;
 `

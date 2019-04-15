@@ -17,8 +17,6 @@ const Form = styled.form`
   align-items: flex-start;
   input,
   textarea {
-    font-family: inherit;
-    font-size: inherit;
     border: none;
     outline: none;
     background: ${props => props.theme.colors.tertiary};
