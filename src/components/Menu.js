@@ -76,6 +76,7 @@ const Avatar = styled.div`
   display: none;
 
   @media (min-width: ${props => props.theme.responsive.small}) {
+    margin-top: 2rem;
     display: block;
   }
 
