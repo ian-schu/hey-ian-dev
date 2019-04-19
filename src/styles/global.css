@@ -7,11 +7,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-.siteContent {
-  display: flex;
-  flex-direction: column;
-  flex: 1 0 auto;
-}
 footer {
   width: 100%;
 }
@@ -68,7 +63,7 @@ table {
 }
 
 body {
-  background: white;
+  background: #eeeeee;
   font-variant-ligatures: normal;
   text-rendering: optimizeLegibility;
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;

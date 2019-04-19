@@ -6,6 +6,7 @@ const Wrapper = styled.section`
   display: flex;
   flex-flow: column nowrap;
   min-height: 300px;
+  margin: 0 auto;
 `
 const BgImg = styled(Img)`
   position: absolute;

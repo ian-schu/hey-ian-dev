@@ -9,7 +9,7 @@ import styled from 'styled-components'
 */
 
 const Form = styled.form`
-  max-width: ${props => props.theme.sizes.maxWidthCentered};
+  max-width: 1000px;
   margin: 0 auto;
   display: flex;
   flex-flow: row wrap;

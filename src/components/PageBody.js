@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 require('prismjs/themes/prism.css')
 
-const Body = styled.div`
+const Body = styled.article`
   margin: 0 auto;
   max-width: ${props => props.theme.sizes.maxWidthCentered};
 

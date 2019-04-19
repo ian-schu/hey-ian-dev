@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import Helmet from 'react-helmet'
 import favicon from '../images/favicon.ico'
 import theme from '../styles/theme'
@@ -8,6 +8,23 @@ import Menu from '../components/Menu'
 import Footer from '../components/Footer'
 
 import '../styles/global.css'
+
+const Outer = styled.div`
+  margin-left: 0;
+
+  @media (min-width: ${props => props.theme.responsive.small}) {
+    margin-left: 20vw;
+  }
+
+  @media (min-width: ${props => props.theme.responsive.medium}) {
+    margin-left: ${props => props.theme.offsets.sidebar.medium};
+  }
+`
+
+const Content = styled.main`
+  width: 100%;
+  min-height: 92vh;
+`
 
 const Template = ({ children }) => {
   return (
@@ -21,11 +38,11 @@ const Template = ({ children }) => {
 
       <ThemeProvider theme={theme}>
         <>
-          <div className="siteContent">
-            <Menu />
-            {children}
-          </div>
-          <Footer />
+          <Menu />
+          <Outer>
+            <Content>{children}</Content>
+            <Footer />
+          </Outer>
         </>
       </ThemeProvider>
     </div>
