@@ -11,12 +11,17 @@ const headingToLink = heading =>
 
 const Bullet = styled.li`
   margin-left: ${props => `${props.depth - 1}rem`};
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `
 
 const TableOfContents = styled.div`
   max-width: ${props => props.theme.sizes.maxWidthCentered};
-  margin: 2rem auto;
-  line-height: 1.5rem;
+  line-height: 1rem;
   a {
     color: gray;
   }
@@ -24,19 +29,21 @@ const TableOfContents = styled.div`
 
 const ToC = props => (
   <TableOfContents>
-    <h2>On this page</h2>
+    <h2>Contents</h2>
     <p>
       <ul>
-        {props.headings.map(heading => {
-          const text = heading.value
-          const depth = heading.depth
+        {props.headings
+          .filter(h => h.depth < 3)
+          .map(heading => {
+            const text = heading.value
+            const depth = heading.depth
 
-          return (
-            <Bullet key={text} depth={depth}>
-              <a href={`#${headingToLink(text)}`}>{text}</a>
-            </Bullet>
-          )
-        })}
+            return (
+              <Bullet key={text} depth={depth}>
+                <a href={`#${headingToLink(text)}`}>{text}</a>
+              </Bullet>
+            )
+          })}
       </ul>
     </p>
   </TableOfContents>
