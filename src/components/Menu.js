@@ -3,6 +3,8 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
+import SocialLinks from './SocialLinks'
+
 const Header = styled.header`
   z-index: 10;
   position: fixed;
@@ -18,9 +20,9 @@ const Header = styled.header`
   box-sizing: border-box;
 
   @media (max-width: ${props => props.theme.responsive.small}) {
-    max-width: 80vw;
+    max-width: 70vw;
     opacity: ${props => (props.expanded ? '0.95' : '0.7')};
-    padding: ${props => (props.expanded ? '2rem' : '0')};
+    padding: ${props => (props.expanded ? '2rem 1rem 1.5rem' : '0')};
     nav {
       display: ${props => (props.expanded ? 'block' : 'none')};
       font-size: 10vw;
@@ -169,6 +171,7 @@ class Menu extends Component {
             Contact
           </Link>
         </Nav>
+        <SocialLinks expanded={expanded} />
       </Header>
     )
   }
