@@ -28,10 +28,10 @@ const Index = ({ data, pageContext }) => {
         {isFirstPage ? (
           <main>
             <Welcome>
-              <h1>Hey Ian!</h1>
+              <h1>Hey! (Ian)</h1>
               <h3>
-                A blog about linguistics, cognitive science, software
-                development, and navel gazing.
+                A stream of consciousness concerning software engineering, being
+                a better human, how the world is complicated, and also sarcasm
               </h3>
             </Welcome>
             <CardList>
@@ -54,6 +54,8 @@ const Index = ({ data, pageContext }) => {
 }
 
 const Welcome = styled.section`
+  border-bottom: ${props => `1px solid ${props.theme.colors.base}`};
+
   text-align: center;
 
   h1 {
