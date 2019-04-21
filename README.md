@@ -1,5 +1,11 @@
-# heyian.dev
+# Hey Ian! 👋
 
-Personal blog and portfolio for Ian Schumann. Come say hi!
+This is the repo for [HeyIan.dev](https://www.heyian.dev). Come say hi!
 
-Built with [Gatsby](https://www.gatsbyjs.org), on top of the excellent [GCN template](https://github.com/ryanwiemer/gatsby-starter-gcn) by Ryan Wiemer
+
+### Acknowledgements:
+
+- This site uses [Gatsby](https://www.gatsbyjs.org), which is just plain awesome
+- All dynamic content is created / managed / published via [Contentful](https://www.contentful.com), which is also awesome
+- Initial site structure was built off the excellent [GCN template](https://github.com/ryanwiemer/gatsby-starter-gcn) by Ryan Wiemer
+- Aesthetic inspiration came mostly from Jekyll's [Hyde](http://hyde.getpoole.com/) and [Royce](https://royce.netlify.com/)
