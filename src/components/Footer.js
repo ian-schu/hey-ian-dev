@@ -2,19 +2,21 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.footer`
+  font-size: 0.8rem;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: flex-end;
+  align-items: center;
   margin: 0 auto;
   max-width: ${props => props.theme.sizes.maxWidth};
+  min-height: 5vh;
 `
 
 const List = styled.ul`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
   width: 100%;
   border-top: 1px solid ${props => props.theme.colors.secondary};
   padding: 1em 0 2em;
@@ -23,7 +25,7 @@ const List = styled.ul`
 
 const Item = styled.li`
   display: inline-block;
-  padding: 0.25em 0;
+  padding: 0;
   width: 100%;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     width: auto;
@@ -43,19 +45,7 @@ const Item = styled.li`
 const Footer = () => (
   <Wrapper>
     <List>
-      <Item>
-        <a
-          href="https://www.contentful.com/"
-          rel="nofollow noopener noreferrer"
-          target="_blank"
-        >
-          <img
-            src="https://images.ctfassets.net/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg"
-            style={{ width: '100px' }}
-            alt="Powered by Contentful"
-          />
-        </a>
-      </Item>
+      <Item>Ian Schumann, 2019</Item>
       <Item>Built in Austin with lots of 🤔 ☕ 🎧 🐬</Item>
     </List>
   </Wrapper>
