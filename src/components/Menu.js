@@ -21,7 +21,7 @@ const Header = styled.header`
 
   @media (max-width: ${props => props.theme.responsive.small}) {
     max-width: 70vw;
-    opacity: ${props => (props.expanded ? '0.95' : '0.7')};
+    opacity: ${props => (props.expanded ? '0.95' : '0.4')};
     padding: ${props => (props.expanded ? '2rem 1rem 1.5rem' : '0')};
     nav {
       display: ${props => (props.expanded ? 'block' : 'none')};
