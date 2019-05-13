@@ -6,9 +6,8 @@ import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import Container from '../components/Container'
 import PageBody from '../components/PageBody'
-import TagList from '../components/TagList'
 import PostLinks from '../components/PostLinks'
-import PostDate from '../components/PostDate'
+import PostMeta from '../components/PostMeta'
 import SEO from '../components/SEO'
 
 const PostTemplate = ({ data, pageContext }) => {
@@ -18,6 +17,7 @@ const PostTemplate = ({ data, pageContext }) => {
     heroImage,
     body,
     publishDate,
+    updatedAt,
     tags,
   } = data.contentfulPost
   const postNode = data.contentfulPost
@@ -35,8 +35,7 @@ const PostTemplate = ({ data, pageContext }) => {
       <Hero title={title} image={heroImage} height={'50vh'} />
 
       <Container>
-        {tags && <TagList tags={tags} />}
-        <PostDate date={publishDate} />
+        <PostMeta tags={tags} publishedAt={publishDate} updatedAt={updatedAt} />
         <PageBody body={body} />
       </Container>
       <PostLinks previous={previous} next={next} />
@@ -55,6 +54,7 @@ export const query = graphql`
         }
       }
       publishDate(formatString: "MMMM DD, YYYY")
+      updatedAt(formatString: "MMMM DD, YYYY")
       publishDateISO: publishDate(formatString: "YYYY-MM-DD")
       tags {
         title

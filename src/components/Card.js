@@ -3,10 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 const Post = styled.li`
-  // border: 1px solid ${props => props.theme.colors.secondary};
-  // border-width: 1px 0;
-  // border-radius: 2px;
-  margin: 0 0 1em 0;
+  margin: 0 0 0.5rem 0;
   width: 100%;
   transition: background 0.7s;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
@@ -15,7 +12,7 @@ const Post = styled.li`
   }
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     flex: ${props => (props.featured ? '0 0 100%' : '0 0 32%')};
-    margin: 0 auto 2vh;
+    margin: 0.5rem auto 0.4rem;
     max-width: 950px;
   }
   &:hover {
@@ -32,29 +29,58 @@ const Post = styled.li`
   }
 `
 
-const Title = styled.h2`
+const Title = styled.h1`
   margin: 0 0 0.6rem;
 `
 
-const Date = styled.h4`
-  margin: 0 0 0.8rem;
+const DateSpan = styled.span`
+  display: inline-block;
+  width: 200px;
+`
+
+const DateLabel = styled.h5`
+  font-style: normal;
+  margin: 0 0.3rem 0 0;
+  display: inline;
   color: ${props => props.theme.colors.secondary};
 `
 
-const Excerpt = styled.p`
-  line-height: 1.6;
+const Date = styled.h5`
+  margin: 0 1rem 0 0;
+  display: inline;
+  color: ${props => props.theme.colors.primary};
 `
 
-const Card = ({ slug, heroImage, title, publishDate, body, ...props }) => (
+const Excerpt = styled.p`
+  font-size: 0.9rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+`
+
+const Card = ({
+  slug,
+  heroImage,
+  title,
+  publishDate,
+  body,
+  metaDescription,
+  updatedAt,
+  ...props
+}) => (
   <Post featured={props.featured}>
     <Link to={`/${slug}/`}>
       <Title>{title}</Title>
-      <Date>{publishDate}</Date>
-      <Excerpt
-        dangerouslySetInnerHTML={{
-          __html: body.childMarkdownRemark.excerpt,
-        }}
-      />
+      <Excerpt>{metaDescription.metaDescription}</Excerpt>
+      <div>
+        <DateSpan>
+          <DateLabel>Published:</DateLabel>
+          <Date>{publishDate}</Date>
+        </DateSpan>
+        <DateSpan>
+          <DateLabel>Last updated:</DateLabel>
+          <Date>{updatedAt}</Date>
+        </DateSpan>
+      </div>
     </Link>
   </Post>
 )

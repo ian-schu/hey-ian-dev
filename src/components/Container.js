@@ -9,7 +9,7 @@ const Wrapper = styled.section`
   max-width: ${props => props.theme.sizes.maxWidthCentered};
   flex-grow: 1;
 
-  padding: 1.5rem;
+  padding: 0.4rem;
 
   @media (min-width: ${props => props.theme.responsive.small}) {
     width: 90%;
