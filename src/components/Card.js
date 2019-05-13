@@ -70,7 +70,7 @@ const Card = ({
   <Post featured={props.featured}>
     <Link to={`/${slug}/`}>
       <Title>{title}</Title>
-      <Excerpt>{metaDescription.metaDescription}</Excerpt>
+      <Excerpt>{metaDescription.internal.content}</Excerpt>
       <div>
         <DateSpan>
           <DateLabel>Published:</DateLabel>

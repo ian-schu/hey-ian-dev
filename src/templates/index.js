@@ -85,7 +85,9 @@ export const query = graphql`
             }
           }
           metaDescription {
-            metaDescription
+            internal {
+              content
+            }
           }
           body {
             childMarkdownRemark {
