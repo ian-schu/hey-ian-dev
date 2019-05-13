@@ -28,10 +28,10 @@ const Index = ({ data, pageContext }) => {
         {isFirstPage ? (
           <main>
             <Welcome>
-              <h1>Hey! (Ian)</h1>
+              <h1>Ian on things</h1>
               <h3>
-                A stream of consciousness concerning software engineering, being
-                a better human, how the world is complicated, and also sarcasm
+                Connecting dots between neuroscience, sociology, futurism,
+                linguistics, ethics, and software engineering. Also, sarcasm.
               </h3>
             </Welcome>
             <CardList>
